@@ -1,10 +1,12 @@
+import * as core from '@actions/core';
 import Unity from './unity';
-import Input from './input';
 import Action from './action';
 
 class Project {
   static get relativePath() {
-    const projectPath = Input.getFromUser().then(result => result.projectPath);
+    const projectPath = core.getInput('projectPath') || '.';
+
+    // Input.getFromUser().then(result => result.projectPath);
 
     return `${projectPath}`;
   }
