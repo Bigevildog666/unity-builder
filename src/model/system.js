@@ -1,3 +1,4 @@
+import * as core from '@actions/core';
 import { exec } from '@actions/exec';
 
 class System {
@@ -17,6 +18,10 @@ class System {
     const exitCode = await exec(command, arguments_, { ...options, listeners });
     if (exitCode !== 0) {
       throw new Error(error);
+    }
+
+    if (error !== '') {
+      core.warning(error);
     }
 
     return result;
