@@ -132,7 +132,7 @@ export default class Versioning {
     // await System.run('git', ['fetch', '--all']);
     // await System.run('git', ['fetch', 'origin', this.branch]);
     await System.run('git', ['checkout', this.branch]);
-    await System.run('git', ['pull', '--tags', this.branch]);
+    await System.run('git', ['pull', '--tags']);
   }
 
   /**
