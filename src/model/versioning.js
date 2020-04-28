@@ -141,7 +141,7 @@ export default class Versioning {
    * identifies the current commit.
    */
   static async getVersionDescription() {
-    return System.run('git', ['describe', '--long', '--tags', '--always', `origin/${this.branch}`]);
+    return System.run('git', ['describe', '--long', '--tags', '--always', `${this.branch}`]);
   }
 
   /**
