@@ -129,7 +129,7 @@ export default class Versioning {
   }
 
   static async fetchAll() {
-    await System.run('git', ['fetch', '--all']);
+    await System.run('git', ['fetch', '--all', '--tags']);
   }
 
   /**
