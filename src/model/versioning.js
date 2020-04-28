@@ -129,8 +129,10 @@ export default class Versioning {
   }
 
   static async fetchAll() {
-    await System.run('git', ['fetch', '--all']);
-    await System.run('git', ['fetch', 'origin', this.branch]);
+    // await System.run('git', ['fetch', '--all']);
+    // await System.run('git', ['fetch', 'origin', this.branch]);
+    await System.run('git', ['checkout', this.branch]);
+    await System.run('git', ['pull', '--tags', this.branch]);
   }
 
   /**
@@ -148,7 +150,7 @@ export default class Versioning {
       '--tags',
       '--always',
       '--debug',
-      `origin/${this.branch}`,
+      `${this.branch}`,
     ]);
   }
 
