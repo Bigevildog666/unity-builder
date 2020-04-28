@@ -129,10 +129,7 @@ export default class Versioning {
   }
 
   static async fetchAll() {
-    // await System.run('git', ['fetch', '--all']);
-    // await System.run('git', ['fetch', 'origin', this.branch]);
-    await System.run('git', ['checkout', this.branch]);
-    await System.run('git', ['pull', '--tags']);
+    await System.run('git', ['fetch', '--all']);
   }
 
   /**
@@ -144,14 +141,7 @@ export default class Versioning {
    * identifies the current commit.
    */
   static async getVersionDescription() {
-    return System.run('git', [
-      'describe',
-      '--long',
-      '--tags',
-      '--always',
-      '--debug',
-      `${this.branch}`,
-    ]);
+    return System.run('git', ['describe', '--long', '--tags', '--always', '--debug']);
   }
 
   /**
